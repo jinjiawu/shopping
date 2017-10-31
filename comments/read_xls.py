@@ -42,4 +42,3 @@ class Read_xls_file():
 
 x = Read_xls_file('user_account.xlsx').get_xls()
 
-
