@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 import os.path
 import xlrd
-from log import Logger
+import sys
+sys.path.append('../')
+from comments.log import Logger
 
 
 logger = Logger('read_xls').getlog()
