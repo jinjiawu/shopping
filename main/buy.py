@@ -40,7 +40,7 @@ class buy_goods():
 			name = raw_input('please input your name:')
 			psw = raw_input('please input your password:')
 			#先判断登录帐号和密码是否正确
-			if name == self.get_user_account()[0][0] and psw == str(self.get_user_account()[0][1]):
+			if name == self.get_user_account()[0][0] and int(psw) == int(self.get_user_account()[0][1]):
 				#通过登录次数判断是不是第一次登录
 				if int(self.get_user_account()[0][2]) == 0:
 					salary = input('please input your salary:')
@@ -85,27 +85,26 @@ class buy_goods():
 				print(u'还剩:%d'%self.get_user_money())
 				print(u'你已购买物品如下:%s'%self.get_user_items())
 				break
-			if your_input == 1:
-				self.chose_good(1)
-			if your_input == 2:
-				self.chose_good(2)
-			if your_input == 3:
-				self.chose_good(3)
-			if your_input == 4:
-				self.chose_good(4)
-			if your_input == 5:
-				self.chose_good(5)
-			if your_input == 6:
-				self.chose_good(6)
+			if your_input == '1':
+				self.chose_good(1,all_items,all_price,last_money)
+			if your_input == '2':
+				self.chose_good(2,all_items,all_price,last_money)
+			if your_input == '3':
+				self.chose_good(3,all_items,all_price,last_money)
+			if your_input == '4':
+				self.chose_good(4,all_items,all_price,last_money)
+			if your_input == '5':
+				self.chose_good(5,all_items,all_price,last_money)
+			if your_input == '6':
+				self.chose_good(6,all_items,all_price,last_money)
+			else:
+				print(u'请输入q或者1~6数字')
 
 
 
 	def main(self):
-		print('你现在有金钱:%d'%(self.get_user_money()))
-		print('有如下商品:')
-		all_items,all_price = self.get_all_items()
-		last_money = int(self.get_user_money())
-		self.chose_good(6,all_items,all_price,last_money)
+		self.login()
+		self.buy_goods()
 
 
 buy_goods().main()
